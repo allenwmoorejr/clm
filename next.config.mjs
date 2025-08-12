@@ -1,7 +1,6 @@
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: { typedRoutes: true },
   env: {
     NEXT_PUBLIC_CHANNEL_ID: process.env.CHANNEL_ID,
     NEXT_PUBLIC_PASTOR_IMG: process.env.NEXT_PUBLIC_PASTOR_IMG,
