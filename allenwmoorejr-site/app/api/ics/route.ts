@@ -1,0 +1,1 @@
+export async function GET(){ return new Response('BEGIN:VCALENDAR\nEND:VCALENDAR',{headers:{'Content-Type':'text/calendar'}}) }

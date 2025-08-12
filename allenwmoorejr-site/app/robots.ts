@@ -1,0 +1,1 @@
+export default function robots(){const origin=process.env.NEXT_PUBLIC_SITE_URL||'https://allenwmoorejr.org';return{rules:[{userAgent:'*',allow:'/'}],sitemap:`${origin}/sitemap.xml`}}
