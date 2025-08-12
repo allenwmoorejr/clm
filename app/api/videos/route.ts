@@ -1,1 +1,23 @@
-export async function GET(){ return Response.json({ items: [] }) }
+import { NextResponse } from "next/server";
+import { fetchChannelRss } from "@/lib/youtube";
+
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
+  const limit = Number(searchParams.get("limit") || 24);
+  const channelId = process.env.CHANNEL_ID;
+  if (!channelId) return NextResponse.json({ error: "CHANNEL_ID not set" }, { status: 500 });
+
+  try {
+    const rss = await fetchChannelRss(channelId);
+    const entries = (rss.feed?.entry || []) as any[];
+    const items = entries.slice(0, limit).map((e:any) => ({
+      id: (e["yt:videoId"] || e["yt:videoid"]),
+      title: e.title,
+      published: e.published,
+      thumbnail: e["media:group"]?.["media:thumbnail"]?.url || `https://i.ytimg.com/vi/${e["yt:videoId"]}/hqdefault.jpg`
+    }));
+    return NextResponse.json({ items });
+  } catch (err:any) {
+    return NextResponse.json({ error: err.message }, { status: 500 });
+  }
+}

@@ -1,9 +1,11 @@
 
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: { typedRoutes: true },
   env: {
     NEXT_PUBLIC_CHANNEL_ID: process.env.CHANNEL_ID,
-    NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
-    NEXT_PUBLIC_GIVING_URL: process.env.GIVING_URL,
+    NEXT_PUBLIC_PASTOR_IMG: process.env.NEXT_PUBLIC_PASTOR_IMG,
+    NEXT_PUBLIC_PASTOR_VIDEO_ID: process.env.NEXT_PUBLIC_PASTOR_VIDEO_ID
   },
   images: {
     remotePatterns: [

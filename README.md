@@ -13,5 +13,3 @@
 ### Images
 - `public/pastor.jpg` — Pastor card portrait (replace with your own)
 - `public/live-preview.jpg` — Hero & /watch poster overlay
-# clm
-# clm
