@@ -1,0 +1,1 @@
+export async function fetchChannelRss(channelId:string){ const res=await fetch(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`,{ next:{ revalidate:60 }}); const xml=await res.text(); return { xml }; } export async function detectLiveVideoId(channelId:string){ return null; }
